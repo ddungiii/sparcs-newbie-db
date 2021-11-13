@@ -17,18 +17,22 @@ const Counter = () => {
   }, []);
 
   const onDeleteClick = (item) => {
-
-  };
-  const onFinishClick = (item) => {
-    // 완료 처리 요청 전송
-    axios.put(`/api/todo/${item.id}/finish`)
-    // 완료 후 목록 조회 요청 전송
+    axios.delete(`/api/todo/${item._id}`)
     .then(() => axios.get(`/api/todo`))
-    // 응답이 돌아오면 응답 내용으로 목록을 변경
     .then(response => {
       setItems(response.data);
     });
   };
+
+  const onFinishClick = (item) => {
+    // 완료 처리 요청 전송
+    axios.put(`/api/todo/${item._id}/finish`)
+    .then(() => axios.get(`/api/todo`))
+    .then(response => {
+      setItems(response.data);
+    });
+  };
+  
   const onAddClick = () => {
     // 추가 요청 전송
     axios.post(`/api/todo`, {
