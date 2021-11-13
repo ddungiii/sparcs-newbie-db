@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import CounterPage from "./components/CounterPage";
 import DogPage from "./components/DogPage";
@@ -9,20 +9,12 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <h1>Main</h1>
-        </Route>
-        <Route exact path="/counter">
-          <CounterPage />
-        </Route>
-        <Route exact path="/dogs">
-          <DogPage />
-        </Route>
-        <Route exact path="/todo">
-          <TodoPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<h1>Main</h1>} />
+        <Route exact path="/counter" element={<CounterPage />} />
+        <Route exact path="/dogs" element={<DogPage />} />
+        <Route exact path="/todo" element={<TodoPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
