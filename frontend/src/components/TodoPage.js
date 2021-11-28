@@ -3,7 +3,7 @@ import axios from "axios";
 import TodoItem from "./TodoItem";
 import "./TodoPage.css";
 
-const Counter = () => {
+const TodoPage = () => {
   const [items, setItems] = useState([]);
   const [addInput, setAddInput] = useState("");
 
@@ -69,4 +69,4 @@ const Counter = () => {
   );
 }
 
-export default Counter;
+export default TodoPage;
